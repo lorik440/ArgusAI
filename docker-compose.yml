@@ -1,0 +1,35 @@
+name: argus
+services:
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+
+    container_name: argus-frontend
+
+    ports:
+      - "5173:5173"
+
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
+    container_name: argus-backend
+
+    ports:
+      - "8000:8000"
+
+  ai-engine:
+    build:
+      context: ./ai_engine
+      dockerfile: Dockerfile
+
+    container_name: argus-ai_engine
+    ports:
+      - "8001:8001"
