@@ -1,5 +1,9 @@
 # ArgusAI
 
+[![License](https://img.shields.io/github/license/lorik440/ArgusAI?label=license)](LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/lorik440/ArgusAI)](https://github.com/lorik440/ArgusAI/commits/main)
+![Project status: scaffold](https://img.shields.io/badge/status-scaffold-orange)
+
 ArgusAI is an early-stage project exploring how computer vision could help exam supervisors review classroom activity. The proposed system would analyze camera footage, identify events that may need attention, and present an explanation and supporting evidence for a human supervisor to review.
 
 **This repository is currently a starter scaffold, not a working monitoring system.** Only basic service health reporting is implemented; video detection, event processing, and the exam-monitoring dashboard are not. Alerts should be treated as review prompts, not as proof of misconduct or automated decisions about students.
