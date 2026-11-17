@@ -30,6 +30,11 @@ To view their logs:
 docker compose logs -f
 ```
 
+To stop the services:
+```powershell
+docker compose stop
+```
+
 To stop and remove the containers:
 
 ```powershell

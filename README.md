@@ -33,6 +33,9 @@ This is the intended design, not functionality available in the current reposito
 
 The application entry points currently provide only basic health/status checks. The AI engine explicitly reports that inference is unavailable; video analysis and monitoring features are not implemented. The architecture document describes a broader planned structure than the files that exist today.
 
+## How to run
+link to [HOW_TO_RUN.md](HOW_TO_RUN.md) for instructions on running the services with Docker Compose and local development.
+
 ## Repository hygiene
 
 The `.gitignore` excludes environment files, model weights, recordings, and common local artifacts. Do not commit real student footage, credentials, or model weights. Use `.env.example` only for placeholder variable names and non-sensitive example values.
