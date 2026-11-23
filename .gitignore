@@ -4,10 +4,12 @@
 
 # Data and recordings
 data/*
+datasets/
 !data/.gitkeep
 *.mp4
 *.avi
 *.mov
+colab/
 
 # Model weights
 *.pt

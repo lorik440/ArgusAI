@@ -6,6 +6,8 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 WORKDIR /app
 
+ENV PYTHONPATH=/app
+
 # Environment configuration
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
@@ -28,4 +30,4 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 # Copy application source code
 COPY . .
 
-CMD [ "uvicorn","src.main:app","--host","0.0.0.0","--port","8001" ]
+CMD ["python", "-m", "src.main"]
