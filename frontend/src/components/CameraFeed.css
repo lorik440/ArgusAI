@@ -1,0 +1,146 @@
+.feed {
+  margin: 0;
+  min-width: 0;
+}
+
+.feed-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: #1b1d20;
+  color: #f0efec;
+}
+
+.feed-media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
+.feed-placeholder {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  padding: 1rem;
+  text-align: center;
+  color: #c3c2b7;
+  font-size: 0.875rem;
+}
+
+.feed-hud {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.6rem 0.7rem;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 28%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent 28%);
+}
+
+.feed-hud-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.feed-name {
+  font-weight: 650;
+  font-size: 0.8125rem;
+}
+
+.feed-desc {
+  font-weight: 400;
+  color: #d6d5cf;
+}
+
+.feed-clock {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.feed-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.6875rem;
+}
+
+.feed-status-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #898781;
+}
+
+.feed-status--online .feed-status-dot {
+  background: #e05a5a;
+  animation: feed-blink 2s ease-in-out infinite;
+}
+
+.feed-status--reconnecting .feed-status-dot {
+  background: #fab219;
+}
+
+@keyframes feed-blink {
+  50% { opacity: 0.35; }
+}
+
+.feed-fps,
+.feed-demo {
+  color: #d6d5cf;
+}
+
+.feed-demo {
+  margin-left: auto;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+  font-size: 0.6875rem;
+}
+
+.feed-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem;
+  text-align: center;
+  background: rgba(20, 21, 23, 0.72);
+  font-size: 0.875rem;
+  font-weight: 550;
+}
+
+.feed--offline .feed-frame .scene {
+  filter: grayscale(1) brightness(0.6);
+}
+
+.feed-caption {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--ink-3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feed-status--online .feed-status-dot {
+    animation: none;
+  }
+}

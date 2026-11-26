@@ -1,0 +1,106 @@
+/* The demo scene imitates a greyscale CCTV image, so it keeps fixed colors in
+   both light and dark mode, like real footage would. */
+.scene {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.scene-void { fill: #1b1d20; }
+.scene-wall-back { fill: #3d4045; }
+.scene-wall-front { fill: #3a3d42; }
+.scene-wall-left { fill: #34373c; }
+.scene-wall-right { fill: #36393e; }
+.scene-ceiling { fill: #2b2d31; }
+.scene-floor { fill: #4b4e53; }
+.scene-board-frame { fill: #6d7075; }
+.scene-board { fill: #2c3a34; }
+.scene-window { fill: #5d646c; }
+.scene-door { fill: #2f3135; }
+
+.scene-floor-lines line {
+  stroke: #575a5f;
+  stroke-width: 0.8;
+}
+
+.desk-top { fill: #9a9da1; }
+.desk-front { fill: #74777c; }
+.desk-side { fill: #66696e; }
+
+.tdesk-top { fill: #85888c; }
+.tdesk-front { fill: #5f6267; }
+.tdesk-side { fill: #55585d; }
+
+.person-top { fill: #7c838b; }
+.person-front { fill: #5f666e; }
+.person-side { fill: #535a62; }
+.person-head { fill: #a3a8ad; }
+
+.scene-student {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: scene-sway 6s ease-in-out infinite;
+}
+
+.scene-student.is-active {
+  animation: scene-lean 1.8s ease-in-out infinite;
+}
+
+@keyframes scene-sway {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
+
+@keyframes scene-lean {
+  0%, 100% { transform: rotate(-2deg); }
+  45%, 60% { transform: rotate(9deg) translateX(2px); }
+}
+
+.scene-seat-label {
+  fill: #e7e9ec;
+  font: 650 13px var(--font, system-ui, sans-serif);
+  text-anchor: middle;
+  dominant-baseline: middle;
+  paint-order: stroke;
+  stroke: rgba(20, 22, 25, 0.75);
+  stroke-width: 3px;
+  pointer-events: none;
+}
+
+.scene-highlight rect {
+  fill: none;
+  stroke-width: 2;
+}
+
+.scene-highlight text {
+  font: 750 15px var(--font, system-ui, sans-serif);
+  fill: #ffffff;
+  paint-order: stroke;
+  stroke: rgba(20, 22, 25, 0.85);
+  stroke-width: 3px;
+}
+
+.scene-highlight.tone-high rect { stroke: #e05a5a; }
+.scene-highlight.tone-medium rect { stroke: #f0b32a; }
+.scene-highlight.tone-low rect { stroke: #5a9ae8; }
+.scene-highlight.tone-selected rect { stroke: #ffffff; stroke-dasharray: 5 3; }
+.scene-highlight.tone-faint rect { stroke: rgba(255, 255, 255, 0.45); stroke-dasharray: 4 3; }
+
+.scene-highlight.tone-high rect,
+.scene-highlight.tone-medium rect,
+.scene-highlight.tone-low rect {
+  animation: scene-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes scene-pulse {
+  0%, 100% { stroke-opacity: 1; }
+  50% { stroke-opacity: 0.45; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-student,
+  .scene-student.is-active,
+  .scene-highlight rect {
+    animation: none;
+  }
+}

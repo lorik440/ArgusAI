@@ -3,15 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ArgusAI</title>
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="ArgusAI supervisor dashboard: live exam monitoring and human review of flagged events."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>ArgusAI · Exam supervision</title>
   </head>
   <body>
-    <main>
-      <h1>ArgusAI</h1>
-      <p>This starter stack does not process video or generate monitoring alerts.</p>
-      <button id="refresh" type="button">Refresh service status</button>
-      <ul id="services" aria-live="polite"></ul>
-    </main>
-    <script type="module" src="/src/main.js"></script>
+    <div id="root"></div>
+    <noscript>ArgusAI needs JavaScript enabled to run the supervisor dashboard.</noscript>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
